@@ -1,0 +1,13 @@
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+default:
+    path: /
+    defaults:
+        _controller: 'AppBundle\Controller\DefaultController::index'
+
+vehicule:
+    path: /vehicule
+    defaults:
+        _controller: 'AppBundle\Controller\VehiculeController::index'
