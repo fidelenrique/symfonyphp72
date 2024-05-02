@@ -11,3 +11,13 @@ vehicule:
     path: /vehicule
     defaults:
         _controller: 'AppBundle\Controller\VehiculeController::index'
+
+owner_index:
+    path: /owners
+    defaults:
+        _controller: 'AppBundle\Controller\OwnerController::index'
+
+owner_create:
+    path: /owners/create
+    defaults:
+        _controller: 'AppBundle\Controller\OwnerController::create'
