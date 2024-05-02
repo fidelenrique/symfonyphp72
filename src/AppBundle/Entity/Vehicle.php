@@ -23,9 +23,6 @@ class Vehicle
     private $brand;
 
     /**
-     *
-     *
-     *
      * @ORM\Column(type="string", length=255)
      */
     private $model;
@@ -85,6 +82,70 @@ class Vehicle
     public function setBrand($brand): void
     {
         $this->brand = $brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param mixed $model
+     */
+    public function setModel($model): void
+    {
+        $this->model = $model;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegistrationDate()
+    {
+        return $this->registrationDate;
+    }
+
+    /**
+     * @param mixed $registrationDate
+     */
+    public function setRegistrationDate($registrationDate): void
+    {
+        $this->registrationDate = $registrationDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRegistrationNumber()
+    {
+        return $this->registrationNumber;
+    }
+
+    /**
+     * @param mixed $registrationNumber
+     */
+    public function setRegistrationNumber($registrationNumber): void
+    {
+        $this->registrationNumber = $registrationNumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCharacteristics()
+    {
+        return $this->characteristics;
+    }
+
+    /**
+     * @param mixed $characteristics
+     */
+    public function setCharacteristics($characteristics): void
+    {
+        $this->characteristics = $characteristics;
     }
 
 

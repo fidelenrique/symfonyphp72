@@ -58,4 +58,18 @@ symfony server:start
 http://localhost:8000
 ```
 
+* 8. Liens pour créer et lister des propiétaires :
+
+```shell
+http://localhost:8000/owners/create
+http://localhost:8000/owners
+```
+
+* 9. Liens pour créer et lister des véhicules :
+
+```shell
+http://localhost:8000/vehicules/create
+http://localhost:8000/vehicules
+```
+
 Assurez-vous de remplacer "votre-utilisateur" et "votre-projet" par votre nom d'utilisateur GitHub et le nom de votre projet respectivement. Vous pouvez également ajouter d'autres instructions spécifiques à votre projet si nécessaire.

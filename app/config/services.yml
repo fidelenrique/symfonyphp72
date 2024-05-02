@@ -35,9 +35,5 @@ services:
     #         $someArgument: 'some_value'
 
     AppBundle\Repository\VehicleRepository:
-        class: AppBundle\Repository\VehicleRepository
-        factory: ['@doctrine.orm.entity_manager', getRepository]
-        arguments:
-            - AppBundle\Entity\Vehicle
 
     AppBundle\Repository\OwnerRepository:

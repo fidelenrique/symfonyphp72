@@ -1,2 +1,19 @@
-<h1>Liste des véhicules</h1>
-{# Ajoutez le contenu de la page ici #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">Liste des véhicules</h1>
+
+        <ul class="list-group mt-3">
+            {% for vehicle in vehicules %}
+                <li class="list-group-item">
+                    <strong>Marque:</strong> {{ vehicle.brand }}<br>
+                    <strong>Modèle:</strong> {{ vehicle.model }}<br>
+                    <strong>Date de registration:</strong> {{ vehicle.registrationDate|date('Y-m-d') }}<br>
+                    <strong>Numéro de registration:</strong> {{ vehicle.registrationNumber }}<br>
+                    <strong>Propriétaire:</strong> {{ vehicle.owner.nameOwner }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
