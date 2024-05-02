@@ -26,3 +26,14 @@ owner_create:
     path: /owners/create
     defaults:
         _controller: 'AppBundle\Controller\OwnerController::create'
+
+characteristic_index:
+    path: /characteristics
+    defaults:
+        _controller: 'AppBundle\Controller\CharacteristicController::index'
+
+characteristic_create:
+    path: /characteristics/create
+    defaults:
+        _controller: 'AppBundle\Controller\CharacteristicController::create'
+        _methods: [GET, POST]

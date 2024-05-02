@@ -37,3 +37,5 @@ services:
     AppBundle\Repository\VehicleRepository:
 
     AppBundle\Repository\OwnerRepository:
+
+    AppBundle\Repository\CharacteristicRepository:

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">Liste des caractéristiques du véhicule</h1>
+
+        <div class="table-responsive mt-3">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Véhicle</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Valeur</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for characteristic in characteristics %}
+                    <tr>
+                        <td>{{ characteristic.vehicle.registrationNumber }}</td>
+                        <td>{{ characteristic.name }}</td>
+                        <td>{{ characteristic.value }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
