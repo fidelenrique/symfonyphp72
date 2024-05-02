@@ -7,10 +7,15 @@ default:
     defaults:
         _controller: 'AppBundle\Controller\DefaultController::index'
 
-vehicule:
-    path: /vehicule
+vehicule_index:
+    path: /vehicules
     defaults:
         _controller: 'AppBundle\Controller\VehiculeController::index'
+
+vehicule_create:
+    path: /vehicules/create
+    defaults:
+        _controller: 'AppBundle\Controller\VehiculeController::create'
 
 owner_index:
     path: /owners

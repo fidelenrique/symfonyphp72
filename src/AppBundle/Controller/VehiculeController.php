@@ -12,4 +12,10 @@ class VehiculeController extends AbstractController
         // Code pour gérer la requête de la route "vehicule"
         return $this->render('vehicule/index.html.twig');
     }
+
+    public function create(): Response
+    {
+        // Code pour gérer la requête de la route "vehicule"
+        return $this->render('vehicule/create.html.twig');
+    }    
 }
