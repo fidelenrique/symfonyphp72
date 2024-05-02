@@ -1,14 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Créer un nouveau propriétaire</h1>
+    <div class="container">
+        <h1 class="mt-5">Créer un nouveau propriétaire</h1>
 
-    {{ form_start(form) }}
-    <div>
-        {{ form_row(form.nameOwner, { 'label': 'Nom du propriétaire' }) }}
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                {{ form_start(form, {'attr': {'class': 'mt-4'}}) }}
+
+                <div class="form-group">
+                    {{ form_label(form.nameOwner, 'Nom du propriétaire', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                    {{ form_widget(form.nameOwner, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                {# Ajoutez d'autres champs ici en utilisant la même structure #}
+
+                <button type="submit" class="btn btn-primary mt-3">Ajouter propriétaire</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
-     Ajoutez d'autres champs ici en utilisant form_row()
-
-    <button type="submit">Ajouter propriétaire</button>
-    {{ form_end(form) }}
 {% endblock %}
