@@ -4,16 +4,37 @@
     <div class="container">
         <h1 class="mt-5">Liste des véhicules</h1>
 
-        <ul class="list-group mt-3">
+        <table id="vehicle-table" class="table table-striped table-bordered mt-3">
+            <thead>
+            <tr>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Date de registration</th>
+                <th>Numéro de registration</th>
+                <th>Propriétaire</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for vehicle in vehicules %}
-                <li class="list-group-item">
-                    <strong>Marque:</strong> {{ vehicle.brand }}<br>
-                    <strong>Modèle:</strong> {{ vehicle.model }}<br>
-                    <strong>Date de registration:</strong> {{ vehicle.registrationDate|date('Y-m-d') }}<br>
-                    <strong>Numéro de registration:</strong> {{ vehicle.registrationNumber }}<br>
-                    <strong>Propriétaire:</strong> {{ vehicle.owner.nameOwner }}
-                </li>
+                <tr>
+                    <td>{{ vehicle.brand }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.registrationDate|date('Y-m-d') }}</td>
+                    <td>{{ vehicle.registrationNumber }}</td>
+                    <td>{{ vehicle.owner.nameOwner }}</td>
+                </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+
+    <script>
+        $(document).ready( function () {
+            $('#vehicle-table').DataTable();
+        } );
+    </script>
 {% endblock %}
