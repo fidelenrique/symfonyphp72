@@ -23,6 +23,9 @@ class Vehicle
     private $brand;
 
     /**
+     *
+     *
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $model;

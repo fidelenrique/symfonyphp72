@@ -22,7 +22,7 @@ class Owner
     private $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=false)
      */
     private $nameOwner;
 
@@ -74,6 +74,22 @@ class Owner
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNameOwner()
+    {
+        return $this->nameOwner;
+    }
+
+    /**
+     * @param mixed $nameOwner
+     */
+    public function setNameOwner($nameOwner): void
+    {
+        $this->nameOwner = $nameOwner;
     }
 
 }

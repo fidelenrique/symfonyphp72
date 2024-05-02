@@ -1,2 +1,14 @@
-<h1>Ajout nouveau propriétaire</h1>
-{# Ajoutez le contenu de la page ici #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Créer un nouveau propriétaire</h1>
+
+    {{ form_start(form) }}
+    <div>
+        {{ form_row(form.nameOwner, { 'label': 'Nom du propriétaire' }) }}
+    </div>
+     Ajoutez d'autres champs ici en utilisant form_row()
+
+    <button type="submit">Ajouter propriétaire</button>
+    {{ form_end(form) }}
+{% endblock %}
