@@ -2,18 +2,16 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Owner;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
+use AppBundle\Entity\Owner;
 
-//
 class OwnerRepository extends ServiceEntityRepository
 {
-    private EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(ManagerRegistry $registry)
     {
-        $this->entityManager = $entityManager;
-        parent::__construct($entityManager, $entityManager->getClassMetadata(Owner::class));
+        parent::__construct($registry, Owner::class);
     }
+
+    // Vos méthodes personnalisées de repository ici...
 }

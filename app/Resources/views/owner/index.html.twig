@@ -1,2 +1,13 @@
-<h1>Liste des propriétaires</h1>
-{# Ajoutez le contenu de la page ici #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="mt-5">Liste des propriétaires</h1>
+
+        <ul class="list-group mt-3">
+            {% for owner in owners %}
+                <li class="list-group-item">{{ owner.nameOwner }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

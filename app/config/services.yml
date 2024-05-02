@@ -39,3 +39,5 @@ services:
         factory: ['@doctrine.orm.entity_manager', getRepository]
         arguments:
             - AppBundle\Entity\Vehicle
+
+    AppBundle\Repository\OwnerRepository:

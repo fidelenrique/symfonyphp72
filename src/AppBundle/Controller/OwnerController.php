@@ -4,16 +4,22 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Owner;
 use AppBundle\Form\OwnerType;
+use AppBundle\Repository\OwnerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 class OwnerController extends AbstractController
 {
-    public function index(): Response
+    public function index(OwnerRepository $ownerRepository): Response
     {
-        // Code pour gérer la requête de la route "owner"
-        return $this->render('owner/index.html.twig');
+        // Récupérer tous les propriétaires depuis le repository
+        $owners = $ownerRepository->findAll();
+
+        // Passer les propriétaires récupérés au template Twig pour affichage
+        return $this->render('owner/index.html.twig', [
+            'owners' => $owners,
+        ]);
     }
 
     // Action pour afficher le formulaire d'ajout de propriétaire
