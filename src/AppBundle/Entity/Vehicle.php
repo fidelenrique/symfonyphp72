@@ -38,7 +38,7 @@ class Vehicle
     private $registrationNumber;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="array")
      */
     private $characteristics;
 
