@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Repository\OwnerRepository;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\OwnerRepository"")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\OwnerRepository")
  */
 class Owner
 {
@@ -29,9 +29,9 @@ class Owner
     // autres propriétés...
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Vehicle", mappedBy="owner")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Vehicle", mappedBy="owner")
      */
-    private ArrayCollection $vehicles;
+    private $vehicles;
 
     public function __construct()
     {

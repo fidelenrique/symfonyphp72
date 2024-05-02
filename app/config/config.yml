@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    env(DATABASE_URL): 'mysql://root:root@172.16.238.13:3306/symfony34?serverVersion=8.3.0-MySQL&charset=utf8mb4'
+    env(DATABASE_URL): 'mariadb://root:root@172.16.238.19:3306/symfony34'
 
 framework:
     #esi: ~
