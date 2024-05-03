@@ -86,4 +86,10 @@ php bin/console doctrine:migrations:diff
 php bin/console doctrine:migrations:migrate
 ```
 
+* 12. suivi graphique - nombre de véhicules par propriétaire :
+
+```shell
+http://symfonyphp72.localhost/chart
+```
+
 Assurez-vous de remplacer "votre-utilisateur" et "votre-projet" par votre nom d'utilisateur GitHub et le nom de votre projet respectivement. Vous pouvez également ajouter d'autres instructions spécifiques à votre projet si nécessaire.
