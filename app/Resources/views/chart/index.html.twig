@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <canvas id="myChart" style="max-width: 100%; height: auto;"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var owners = {{ owners | json_encode | raw }};
+        console.log(owners);
+        var labels = [];
+        var data = [];
+
+        owners.forEach(function(owner) {
+            labels.push(owner.owner_name);
+            data.push(owner.vehicle_count);
+        });
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Nombre de véhicules par propriétaire',
+                    data: data,
+                    backgroundColor: 'rgb(169,54,235)',
+                    borderColor: 'rgb(91,121,220)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Commencez l'axe y à zéro
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}
+
+

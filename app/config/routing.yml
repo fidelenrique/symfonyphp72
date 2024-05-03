@@ -37,3 +37,8 @@ characteristic_create:
     defaults:
         _controller: 'AppBundle\Controller\CharacteristicController::create'
         _methods: [GET, POST]
+
+chart_index:
+    path: /chart
+    defaults:
+        _controller: 'AppBundle\Controller\ChartController::chart'

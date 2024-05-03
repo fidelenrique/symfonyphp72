@@ -2,10 +2,12 @@
 
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CharacteristicRepository")
  * @ORM\Table(name="characteristics")
+ * @UniqueEntity(fields={"name","vehicle"}, message="Cette caracteristique est déjà enregistrée pour ce véhicule")
  */
 class Characteristic
 {
