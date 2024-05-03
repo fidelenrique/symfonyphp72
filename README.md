@@ -72,4 +72,18 @@ http://localhost:8000/vehicules/create
 http://localhost:8000/vehicules
 ```
 
+* 10. Liens pour créer et lister des caractéristiques du véhicule :
+
+```shell
+http://localhost:8000/characteristics/create
+http://localhost:8000/characteristics
+```
+
+* 11. commandes pour mettre à our le schéma de la base de données :
+
+```shell
+php bin/console doctrine:migrations:diff
+php bin/console doctrine:migrations:migrate
+```
+
 Assurez-vous de remplacer "votre-utilisateur" et "votre-projet" par votre nom d'utilisateur GitHub et le nom de votre projet respectivement. Vous pouvez également ajouter d'autres instructions spécifiques à votre projet si nécessaire.

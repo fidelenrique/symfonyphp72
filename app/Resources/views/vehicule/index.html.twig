@@ -12,6 +12,7 @@
                 <th>Date de registration</th>
                 <th>Numéro de registration</th>
                 <th>Propriétaire</th>
+                <th>Caractéristiques</th> <!-- Nouvelle colonne pour les caractéristiques -->
             </tr>
             </thead>
             <tbody>
@@ -22,6 +23,13 @@
                     <td>{{ vehicle.registrationDate|date('Y-m-d') }}</td>
                     <td>{{ vehicle.registrationNumber }}</td>
                     <td>{{ vehicle.owner.nameOwner }}</td>
+                    <td>
+                        <ul>
+                            {% for characteristic in vehicle.characteristics %}
+                                <li>{{ characteristic.name }}: {{ characteristic.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

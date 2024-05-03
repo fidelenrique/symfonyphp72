@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,7 +40,7 @@ class Vehicle
     private $registrationNumber;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\OneToMany(targetEntity="Characteristic", mappedBy="vehicle", cascade={"persist", "remove"})
      */
     private $characteristics;
 
@@ -48,7 +50,10 @@ class Vehicle
      */
     private $owner;
 
-    // Getters and setters for all properties
+    public function __construct()
+    {
+        $this->characteristics = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -133,20 +138,33 @@ class Vehicle
     }
 
     /**
-     * @return mixed
+     * @return Collection|Characteristic[]
      */
-    public function getCharacteristics()
+    public function getCharacteristics(): Collection
     {
         return $this->characteristics;
     }
 
-    /**
-     * @param mixed $characteristics
-     */
-    public function setCharacteristics($characteristics): void
+    public function addCharacteristic(Characteristic $characteristic): self
     {
-        $this->characteristics = $characteristics;
+        if (!$this->characteristics->contains($characteristic)) {
+            $this->characteristics[] = $characteristic;
+            $characteristic->setVehicle($this);
+        }
+
+        return $this;
     }
 
+    public function removeCharacteristic(Characteristic $characteristic): self
+    {
+        if ($this->characteristics->contains($characteristic)) {
+            $this->characteristics->removeElement($characteristic);
+            // set the owning side to null (unless already changed)
+            if ($characteristic->getVehicle() === $this) {
+                $characteristic->setVehicle(null);
+            }
+        }
 
+        return $this;
+    }
 }

@@ -29,6 +29,10 @@
                     {{ form_label(form.owner, 'Propriétaire', {'label_attr': {'class': 'control-label'}}) }}
                     {{ form_widget(form.owner, {'attr': {'class': 'form-control'}}) }}
                 </div>
+                <div class="form-group">
+                    {{ form_label(form.characteristics, 'Caractéristiques', {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_widget(form.characteristics, {'attr': {'class': 'form-control', 'multiple': 'multiple'}}) }}
+                </div>
                 {# Ajoutez d'autres champs ici si nécessaire #}
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Créer le véhicule</button>
