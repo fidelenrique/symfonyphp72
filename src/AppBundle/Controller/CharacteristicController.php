@@ -5,11 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Characteristic;
 use AppBundle\Form\CharacteristicType;
 use AppBundle\Repository\CharacteristicRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CharacteristicController extends AbstractController
+class CharacteristicController extends BaseController
 {
     public function index(CharacteristicRepository $characteristicRepository): Response
     {
@@ -29,10 +28,8 @@ class CharacteristicController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Sauvegarder la characteristique en base de données
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($characteristic);
-            $entityManager->flush();
+            // Utiliser la méthode de sauvegarde de la classe parente
+            $this->saveEntity($characteristic);
 
             // Redirection vers une autre page ou affichage d'un message de succès
             return $this->redirectToRoute('characteristic_index');

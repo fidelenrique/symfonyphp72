@@ -13,5 +13,16 @@ class VehicleRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicle::class);
     }
 
-    // Vos méthodes personnalisées de repository ici...
+    // Méthode pour compter le nombre de véhicules par propriétaire
+    public function countVehiclesByOwner()
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->select('COUNT(v) as vehicle_count, o.nameOwner as owner_name')
+            ->leftJoin('v.owner', 'o')
+            ->groupBy('o.id');
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+    }
 }

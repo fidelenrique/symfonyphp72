@@ -79,7 +79,7 @@ http://localhost:8000/characteristics/create
 http://localhost:8000/characteristics
 ```
 
-* 11. commandes pour mettre à our le schéma de la base de données :
+* 11. commandes pour mettre à jour le schéma de la base de données :
 
 ```shell
 php bin/console doctrine:migrations:diff

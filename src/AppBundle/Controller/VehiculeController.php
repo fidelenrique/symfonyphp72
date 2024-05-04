@@ -5,11 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Vehicle;
 use AppBundle\Form\VehicleType;
 use AppBundle\Repository\VehicleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class VehiculeController extends AbstractController
+class VehiculeController extends BaseController
 {
     public function index(VehicleRepository $vehicleRepository): Response
     {
@@ -29,10 +28,8 @@ class VehiculeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Sauvegarder le véhicule en base de données
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($vehicule);
-            $entityManager->flush();
+            // Utiliser la méthode de sauvegarde de la classe parente
+            $this->saveEntity($vehicule);
 
             // Redirection vers une autre page ou affichage d'un message de succès
             return $this->redirectToRoute('vehicule_index');

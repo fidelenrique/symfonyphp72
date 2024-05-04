@@ -5,11 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Owner;
 use AppBundle\Form\OwnerType;
 use AppBundle\Repository\OwnerRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class OwnerController extends AbstractController
+class OwnerController extends BaseController
 {
     public function index(OwnerRepository $ownerRepository): Response
     {
@@ -29,10 +28,8 @@ class OwnerController extends AbstractController
         $form = $this->createForm(OwnerType::class, $owner);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // Sauvegarder le propriétaire en base de données
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($owner);
-            $entityManager->flush();
+            // Utiliser la méthode de sauvegarde de la classe parente
+            $this->saveEntity($owner);
 
             // Redirection vers une autre page ou affichage d'un message de succès
             return $this->redirectToRoute('owner_index');
